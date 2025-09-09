@@ -344,6 +344,104 @@
             color: #ccd6f6;
         }
         
+        /* Pricing Table */
+        .pricing {
+            padding: 100px 0;
+            background: rgba(10, 25, 47, 0.4);
+        }
+        
+        .pricing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, rgba(100, 255, 218, 0.1), rgba(0, 191, 255, 0.1));
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .pricing-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            color: #64ffda;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-header p {
+            color: #ccd6f6;
+            font-size: 18px;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .pricing-table th,
+        .pricing-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .pricing-table th {
+            background: rgba(0, 0, 0, 0.2);
+            color: #64ffda;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tr:hover {
+            background: rgba(100, 255, 218, 0.05);
+        }
+        
+        .service-name {
+            font-weight: 700;
+            color: #64ffda;
+            font-size: 18px;
+        }
+        
+        .service-desc {
+            color: #ccd6f6;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #00bfff;
+            text-align: right;
+        }
+        
+        .price-note {
+            display: block;
+            font-size: 14px;
+            color: #ccd6f6;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+        
+        .pricing-cta {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, rgba(100, 255, 218, 0.1), rgba(0, 191, 255, 0.1));
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
         /* About Page */
         .about-content {
             display: grid;
@@ -688,6 +786,90 @@
                             <h3>Emily Rodriguez</h3>
                             <p>UX Designer</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Table -->
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title">Our Pricing</h2>
+                <div class="pricing-container">
+                    <div class="pricing-header">
+                        <h2>Transparent Pricing</h2>
+                        <p>Choose the perfect plan for your business needs</p>
+                    </div>
+                    
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span class="service-name">AI Solutions</span>
+                                </td>
+                                <td>
+                                    <span class="service-desc">Custom AI implementation including consultation, development, and integration</span>
+                                </td>
+                                <td>
+                                    <span class="price">$5,000+<span class="price-note">project-based</span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="service-name">Web Development</span>
+                                </td>
+                                <td>
+                                    <span class="service-desc">Full-stack web development with modern frameworks and responsive design</span>
+                                </td>
+                                <td>
+                                    <span class="price">$3,500+<span class="price-note">project-based</span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="service-name">Data Analytics</span>
+                                </td>
+                                <td>
+                                    <span class="service-desc">Comprehensive data analysis with visualization dashboards and reporting</span>
+                                </td>
+                                <td>
+                                    <span class="price">$2,800+<span class="price-note">project-based</span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="service-name">UI/UX Design</span>
+                                </td>
+                                <td>
+                                    <span class="service-desc">User-centered design approach with prototyping and testing</span>
+                                </td>
+                                <td>
+                                    <span class="price">$2,200+<span class="price-note">project-based</span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="service-name">Maintenance & Support</span>
+                                </td>
+                                <td>
+                                    <span class="service-desc">Ongoing technical support, updates, and maintenance services</span>
+                                </td>
+                                <td>
+                                    <span class="price">$500<span class="price-note">monthly</span></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="pricing-cta">
+                        <a href="#" class="btn" onclick="showPage('contact')">Custom Quote <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
