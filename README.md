@@ -31,3 +31,8 @@ You can do it anywhere you want, you can make it how fantastic as you want, but 
 
 
 
+#Prompt 4 (Light & Dark Mode) -- Started a New Prompt (It broke)
+Ah, I forgot to mention. Can you add a pressable button that does not look bad, with a feature that changes between light & dark mode on all surfaces. I want the default color (dark-ish) which it is right now.
+I just want it to have a light mode feature that can always be turned on & off on all places of the website.
+You can add it wherever you want.
+
