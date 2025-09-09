@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="sv" class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WEBSPOT – Tailwind + MagicUI</title>
+    <meta name="description" content="En modern landningssida byggd med HTML, CSS och JS. Tailwind CSS och MagicUI-inspirerade effekter." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6',
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
+                950: '#2e1065',
+              },
+            },
+            boxShadow: {
+              glow: '0 0 30px rgba(139,92,246,0.35), inset 0 0 20px rgba(56,189,248,0.15)',
+            },
+            backdropBlur: {
+              xs: '2px',
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom CSS for MagicUI-inspired effects -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <!-- Decorative Aurora Background -->
+    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div class="aurora">
+        <span class="aurora__item aurora__one"></span>
+        <span class="aurora__item aurora__two"></span>
+        <span class="aurora__item aurora__three"></span>
+        <span class="aurora__item aurora__four"></span>
+      </div>
+      <div class="bg-grid"></div>
+      <div class="bg-vignette"></div>
+    </div>
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-30">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <nav
+          class="mt-4 flex items-center justify-between rounded-2xl border border-slate-900/10 bg-white/70 px-4 py-3 shadow-glow backdrop-blur-md dark:border-white/10 dark:bg-white/5"
+          aria-label="Huvudnavigation"
+        >
+          <!-- Logo (Text) -->
+          <a href="#home" class="font-display text-xl font-semibold tracking-tight sm:text-2xl">
+            <span class="bg-gradient-to-r from-brand-500 via-sky-500 to-teal-500 bg-clip-text text-transparent dark:from-brand-300 dark:via-sky-300 dark:to-teal-300">WEBSPOT</span>
+          </a>
+
+          <!-- Desktop Menu -->
+          <ul class="hidden items-center gap-6 text-sm font-medium sm:flex">
+            <li><a class="nav-link" href="#home">Hem</a></li>
+            <li><a class="nav-link" href="#about">Om oss</a></li>
+            <li><a class="nav-link" href="#contact">Kontakt</a></li>
+          </ul>
+
+          <!-- CTA + Theme Toggle + Mobile Toggle -->
+          <div class="flex items-center gap-3">
+            <!-- Theme toggle -->
+            <button
+              id="themeToggle"
+              class="inline-flex items-center justify-center rounded-lg border border-slate-900/10 bg-white/80 p-2 text-slate-700 shadow-sm backdrop-blur-md hover:border-slate-900/20 hover:bg-white/90 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10"
+              aria-label="Växla tema"
+              title="Växla tema"
+              type="button"
+            >
+              <!-- Moon (shown i ljus-läge) -->
+              <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+              </svg>
+              <!-- Sun (visas i mörkt läge) -->
+              <svg class="hidden h-5 w-5 dark:inline-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+              </svg>
+            </button>
+
+            <a href="#contact" class="hidden sm:inline-block shimmer-button">
+              <span>Kom igång</span>
+            </a>
+            <button
+              id="mobileToggle"
+              class="inline-flex items-center justify-center rounded-lg border border-slate-900/10 bg-white/80 p-2 text-slate-700 backdrop-blur-md sm:hidden dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+              aria-label="Öppna meny"
+              type="button"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mt-2 hidden overflow-hidden rounded-2xl border border-slate-900/10 bg-white/80 backdrop-blur-md sm:hidden dark:border-white/10 dark:bg-white/5">
+          <ul class="flex flex-col divide-y divide-slate-900/10 text-sm font-medium dark:divide-white/10">
+            <li><a class="block px-4 py-3 hover:bg-slate-900/[0.04] dark:text-slate-200 dark:hover:bg-white/5" href="#home">Hem</a></li>
+            <li><a class="block px-4 py-3 hover:bg-slate-900/[0.04] dark:text-slate-200 dark:hover:bg-white/5" href="#about">Om oss</a></li>
+            <li><a class="block px-4 py-3 hover:bg-slate-900/[0.04] dark:text-slate-200 dark:hover:bg-white/5" href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero / Body with heading and button -->
+    <main>
+      <section id="home" class="relative">
+        <div class="mx-auto max-w-7xl px-4 pb-24 pt-20 sm:px-6 lg:px-8">
+          <div class="grid items-center gap-10 md:grid-cols-2">
+            <div class="reveal">
+              <div class="inline-flex items-center gap-2 rounded-full border border-slate-900/10 bg-slate-900/[0.03] px-3 py-1 text-xs text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+                <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
+                Live-demo
+              </div>
+              <h1 class="mt-4 font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                Skapa något <span class="gradient-text">magiskt</span> med
+                <span class="bg-gradient-to-r from-sky-600 to-brand-600 bg-clip-text text-transparent dark:from-sky-300 dark:to-brand-300">Tailwind</span> + Magic UI
+              </h1>
+              <p class="mt-5 max-w-xl text-slate-600 dark:text-slate-300">
+                En modern landningssida med glas-effekter, aurora-bakgrund och ett skimrande knapp—byggd endast med HTML, CSS och JS.
+              </p>
+              <div class="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#contact" class="shimmer-button">
+                  <span>Kom igång</span>
+                </a>
+                <a href="#about" class="btn-ghost">Läs mer</a>
+              </div>
+
+              <div class="mt-8 flex items-center gap-6 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-emerald-500/90 dark:bg-emerald-400/90"></span>
+                  Snabbt att börja
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-sky-500/90 dark:bg-sky-400/90"></span>
+                  Minimal setup
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-violet-500/90 dark:bg-violet-400/90"></span>
+                  Responsiv design
+                </div>
+              </div>
+            </div>
+
+            <!-- Decorative / Feature Card -->
+            <div class="reveal">
+              <div class="relative isolate rounded-3xl border border-slate-900/10 bg-white/60 p-6 shadow-glow backdrop-blur-md dark:border-white/10 dark:bg-white/5">
+                <div class="absolute -top-12 -right-12 h-48 w-48 rounded-full bg-gradient-to-tr from-brand-500/20 via-sky-400/20 to-emerald-400/20 blur-3xl dark:from-brand-500/30 dark:via-sky-400/30 dark:to-emerald-400/30"></div>
+                <div class="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-gradient-to-tr from-fuchsia-500/15 via-violet-400/18 to-sky-400/15 blur-3xl dark:from-fuchsia-500/20 dark:via-violet-400/25 dark:to-sky-400/20"></div>
+
+                <div class="flex items-center justify-between">
+                  <h3 class="font-display text-xl font-semibold">Klara komponenter</h3>
+                  <span class="rounded-full border border-slate-900/10 bg-slate-900/5 px-2 py-1 text-[10px] text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-300">Magic UI</span>
+                </div>
+                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                  Återanvändbara byggstenar: aurora, shimmer-knapp, grid overlay och glas-kort—allt i ren Tailwind.
+                </p>
+
+                <div class="mt-6 grid grid-cols-3 gap-3">
+                  <div class="stat-card tilt">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">Prestanda</div>
+                    <div class="mt-1 text-2xl font-bold">A+</div>
+                  </div>
+                  <div class="stat-card tilt">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">Byggtid</div>
+                    <div class="mt-1 text-2xl font-bold">0 min</div>
+                  </div>
+                  <div class="stat-card tilt">
+                    <div class="text-xs text-slate-500 dark:text-slate-400">Responsiv</div>
+                    <div class="mt-1 text-2xl font-bold">100%</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-xl border border-slate-900/10 bg-gradient-to-br from-slate-900/5 to-slate-900/[0.02] p-4 dark:border-white/10 dark:from-white/5 dark:to-white/[0.02]">
+                  <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                    <span class="h-2 w-2 animate-ping rounded-full bg-emerald-500/80 dark:bg-emerald-400/80"></span>
+                    Klar att distribueras statiskt
+                  </div>
+                  <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-slate-900/10 dark:bg-white/10">
+                    <div class="h-full w-2/3 animate-[progress_3s_ease_infinite] rounded-full bg-gradient-to-r from-emerald-500 via-sky-500 to-brand-500 dark:from-emerald-400 dark:via-sky-400 dark:to-brand-400"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="relative">
+        <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl text-center">
+            <h2 class="font-display text-3xl font-semibold sm:text-4xl">Om oss</h2>
+            <p class="mt-3 text-slate-600 dark:text-slate-300">Vi bygger vackra, snabba och tillgängliga webbupplevelser med fokus på detaljer.</p>
+          </div>
+
+          <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="feature-card reveal tilt">
+              <div class="icon-badge bg-gradient-to-br from-sky-400 to-brand-500">⚡</div>
+              <h3 class="mt-4 font-display text-xl font-semibold">Prestanda först</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Inga tunga beroenden—CDN-baserad Tailwind och minimal JS.</p>
+            </article>
+
+            <article class="feature-card reveal tilt">
+              <div class="icon-badge bg-gradient-to-br from-emerald-400 to-teal-500">🎨</div>
+              <h3 class="mt-4 font-display text-xl font-semibold">Designsystem</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Konsekventa färger, typer och effekter inspirerade av Magic UI.</p>
+            </article>
+
+            <article class="feature-card reveal tilt">
+              <div class="icon-badge bg-gradient-to-br from-fuchsia-400 to-violet-500">🧩</div>
+              <h3 class="mt-4 font-display text-xl font-semibold">Återanvändbara block</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Kombinera kort, knappar och bakgrunder för snabb prototypning.</p>
+            </article>
+          </div>
+
+          <!-- Pricing Table (Namn & Pris) -->
+          <div class="mt-12 reveal overflow-hidden rounded-2xl border border-slate-900/10 bg-white/60 backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]">
+            <div class="px-6 pt-6">
+              <h3 id="pricing-title" class="font-display text-2xl font-semibold">Prislista</h3>
+              <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Exempel på paket och kostnader.</p>
+            </div>
+            <div class="mt-4 overflow-x-auto">
+              <table class="min-w-full text-left text-sm">
+                <caption class="sr-only">Prislista med namn och pris</caption>
+                <thead class="text-xs uppercase text-slate-600 dark:text-slate-300">
+                  <tr class="border-y border-slate-900/10 bg-slate-900/5 dark:border-white/10 dark:bg-white/[0.03]">
+                    <th scope="col" class="px-6 py-3">Namn</th>
+                    <th scope="col" class="px-6 py-3">Pris</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-900/10 dark:divide-white/10">
+                  <tr class="hover:bg-slate-900/[0.04] dark:hover:bg-white/5">
+                    <td class="px-6 py-3">Enkel</td>
+                    <td class="px-6 py-3">99 kr/mån</td>
+                    <td class="px-6 py-3">Enkel ger vi er lite kontrol och information om hemsido-skapande.</td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/[0.04] dark:hover:bg-white/5">
+                    <td class="px-6 py-3">Standard</td>
+                    <td class="px-6 py-3">199 kr/mån</td>
+                    <td class="px-6 py-3">Standard Paket så kommer du få en hemsida med en av våra medium hemsido-skapare.</td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/[0.04] dark:hover:bg-white/5">
+                    <td class="px-6 py-3">Firma</td>
+                    <td class="px-6 py-3">499 kr/mån</td>
+                    <td class="px-6 py-3">Om du är en Firma och köper detta, så kommer du få mer kraft och vi kräver någon relation i utbyte.</td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/[0.04] dark:hover:bg-white/5">
+                    <td class="px-6 py-3">Anpassad</td>
+                    <td class="px-6 py-3">999 kr/mån oss</td>
+                    <td class="px-6 py-3">Vi kräver extrem kommunikation för bra hemsido-skapande.</td>
+                  </tr>
+                  <tr class="hover:bg-slate-900/[0.04] dark:hover:bg-white/5">
+                    <td class="px-6 py-3">Overseer</td>
+                    <td class="px-6 py-3">???</td>
+                    <td class="px-6 py-3">Kontakta oss.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="relative">
+        <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div class="grid gap-10 md:grid-cols-2">
+            <div class="reveal">
+              <h2 class="font-display text-3xl font-semibold sm:text-4xl">Kontakta oss</h2>
+              <p class="mt-3 text-slate-600 dark:text-slate-300">
+                Har du ett projekt i åtanke? Skicka ett meddelande så återkommer vi.
+              </p>
+
+              <div class="mt-8 rounded-2xl border border-slate-900/10 bg-white/60 p-6 backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]">
+                <dl class="grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
+                  <div>
+                    <dt class="text-slate-500 dark:text-slate-400">E-post</dt>
+                    <dd class="mt-1 font-medium">kontakt@example.com</dd>
+                  </div>
+                  <div>
+                    <dt class="text-slate-500 dark:text-slate-400">Telefon</dt>
+                    <dd class="mt-1 font-medium">+46 70 000 00 00</dd>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <dt class="text-slate-500 dark:text-slate-400">Adress</dt>
+                    <dd class="mt-1 font-medium">Storgatan 1, 111 22 Stockholm</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <form class="reveal rounded-2xl border border-slate-900/10 bg-emerald-50060 p-6 backdrop-blur-md dark:border-white/10 dark:bg-emerald-400/[0.04]">
+              <label class="block">
+                <span class="text-sm text-slate-700 dark:text-slate-300">Namn</span>
+                <input
+                  type="text"
+                  required
+                  class="mt-1 w-full rounded-lg border border-slate-900/10 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-500/40 focus:ring-2 focus:ring-sky-500/20 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:focus:border-sky-400/40 dark:focus:ring-sky-400/20"
+                  placeholder="Ditt namn"
+                />
+              </label>
+
+              <label class="mt-4 block">
+                <span class="text-sm text-slate-700 dark:text-slate-300">E-post</span>
+                <input
+                  type="email"
+                  required
+                  class="mt-1 w-full rounded-lg border border-slate-900/10 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-500/40 focus:ring-2 focus:ring-sky-500/20 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:focus:border-sky-400/40 dark:focus:ring-sky-400/20"
+                  placeholder="du@exempel.se"
+                />
+              </label>
+
+              <label class="mt-4 block">
+                <span class="text-sm text-slate-700 dark:text-slate-300">Meddelande</span>
+                <textarea
+                  rows="5"
+                  required
+                  class="mt-1 w-full rounded-lg border border-slate-900/10 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none focus:border-sky-500/40 focus:ring-2 focus:ring-sky-500/20 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-100 dark:focus:border-sky-400/40 dark:focus:ring-sky-400/20"
+                  placeholder="Berätta mer om ditt projekt..."
+                ></textarea>
+              </label>
+
+              <button type="submit" class="mt-6 w-full shimmer-button">
+                <span>Skicka meddelande</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900/10 bg-slate-900/5 py-8 dark:border-white/10 dark:bg-white/[0.02]">
+      <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-sm text-slate-500 sm:flex-row sm:px-6 lg:px-8 dark:text-slate-400">
+        <p>
+          © <span id="year"></span> MagiskSida. Alla rättigheter förbehållna.
+        </p>
+        <p>
+          Inspirerad av <a class="underline decoration-dotted hover:text-slate-700 dark:hover:text-slate-200" href="https://magicui.design/" target="_blank" rel="noopener">Magic UI</a>.
+        </p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
